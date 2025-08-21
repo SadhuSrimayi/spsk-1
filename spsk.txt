@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPSK - Handmade Accessories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #222;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .product {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    .product p {
+      font-size: 1rem;
+      color: #777;
+    }
+
+    .product button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #ff7eb3;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 1rem;
+    }
+
+    .contact form {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .contact button {
+      background-color: #ff7eb3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SPSK</h1>
+    <p>Handcrafted bracelets, rings, keychains & more</p>
+  </header>
+
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <a href="#cart">Cart</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Explore Unique Handmade Accessories</h2>
+    <p>Beaded bracelets, Rakhi’s, lockets, name keychains and more</p>
+  </section>
+
+  <section class="products" id="products">
+    <div class="product">
+      <img src="https://i.imgur.com/NZ5FQ9q.jpg" alt="Beaded Bracelet">
+      <h3>Beaded Bracelet</h3>
+      <p>Stylish handmade bracelet</p>
+      <button onclick="addToCart('Beaded Bracelet')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/zEkMpgR.jpg" alt="Chain">
+      <h3>Chains</h3>
+      <p>Trendy chains for daily wear</p>
+      <button onclick="addToCart('Chain')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/8Sli7mL.jpg" alt="Rakhi">
+      <h3>Rakshi's</h3>
+      <p>Traditional & stylish Rakhi</p>
+      <button onclick="addToCart('Rakshi')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/bqBQc6c.jpg" alt="Friendship Band">
+      <h3>Friendship Bands</h3>
+      <p>Celebrate bonds with style</p>
+      <button onclick="addToCart('Friendship Band')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/yAb0IkK.jpg" alt="Custom Keychain">
+      <h3>Custom Key Chains</h3>
+      <p>Names, letters & numbers</p>
+      <button onclick="addToCart('Custom Keychain')">Add to Cart</button>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/xwkgrakj" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p>or chat with us on <a href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a></p>
+  </section>
+
+  <script>
+    const cart = [];
+
+    function addToCart(item) {
+      cart.push(item);
+      alert(item + " added to cart!");
+    }
+  </script>
+
+  <footer>
+    <p>&copy; 2025 SPSK. All rights reserved.</p>
+  </footer>
+</body>
+</html>
